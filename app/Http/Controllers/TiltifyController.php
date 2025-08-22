@@ -57,12 +57,15 @@ class TiltifyController extends Controller
 
     public function campaign(): Campaign
     {
-        $slug = \request()->input('slug');
-        $vanity = \request()->input('vanity');
+        // lol whoops
+        $vanity = \request()->input('slug');
+        $slug = \request()->input('vanity');
 
         if (!$slug || !$vanity) {
             return $this->relay();
         }
+
+        $slug = \str_replace('@', '', $slug);
 
         $key = 'tiltify_campaign_' . $slug . '_' . $vanity;
 
