@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Be a Donation Daddy Today!')
-
 @section('content')
 
     <style>
@@ -34,6 +32,11 @@
             text-align: left;
         }
     </style>
+
+    <div class="featured-image">
+        <img src="/icons/{{ $assetpath }}/{{ $image }}">
+    </div>
+
     @if ($countSingle > 0)<p class="center"><strong>{{ $countSingle }} people have raised enough for a coin!</strong></p>@endif
 
     @if ($countSet > 0)<p class="center"><strong>{{ $countSet }} people have raised enough for the host coin set!</strong></p>@endif

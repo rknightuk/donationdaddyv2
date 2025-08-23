@@ -46,27 +46,76 @@ class DaddyController extends Controller
             'countSet' => $countSet,
             'singles' => $singles,
             'sets' => $sets,
+            'image' => 'coins2025.png',
          ]);
      }
 
      public function deskmat()
      {
-         return view('deskmat');
+         $campaigns = $this->getSortedCampaigns();
+
+         $count = 0;
+         $need = [];
+
+         foreach ($campaigns as $campaign) {
+             if ($campaign->raised >= 250) {
+                 $count++;
+             } else {
+                 $need[] = $campaign;
+             }
+         }
+
+         return view('singleitem', [
+             'title' => 'Desk Mat Help',
+             'subtitle' => 'Help someone out who is close to getting a Relay for St Jude desk mat',
+             'assetpath' => 'deskmat',
+             'count' => $count,
+             'need' => $need,
+             'limit' => 250,
+             'item' => 'desk mat',
+             'image' => 'deskmat.png',
+         ]);
      }
+
+    public function bag()
+    {
+        $campaigns = $this->getSortedCampaigns();
+
+        $count = 0;
+        $need = [];
+
+        foreach ($campaigns as $campaign) {
+            if ($campaign->raised >= 500) {
+                $count++;
+            } else {
+                $need[] = $campaign;
+            }
+        }
+
+        return view('singleitem', [
+            'title' => 'Backpack Help',
+            'subtitle' => 'Help someone out who is close to getting a Relay for St Jude backpack',
+            'assetpath' => '500',
+            'count' => $count,
+            'need' => $need,
+            'limit' => 500,
+            'item' => 'backpack',
+            'image' => 'bag.png',
+        ]);
+    }
+
+    public function septembed()
+    {
+        return view('septembed', [
+            'title' => 'Septembed',
+            'subtitle' => 'Embed your Relay for St Jude campaign on your website',
+            'assetpath' => 'septembed',
+        ]);
+    }
 
      public function treats()
      {
          return view('treats');
-     }
-
-     public function septembed()
-     {
-         return view('septembed');
-     }
-
-     public function bag()
-     {
-         return view('bag');
      }
 
     private function getSortedCampaigns()
