@@ -1,10 +1,3 @@
-<html>
-<head>
-    <title>App Name - @yield('title')</title>
-</head>
-<body>
-
-
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -162,26 +155,69 @@
             justify-content: center;
         }
 
+        .sj-container {
+            padding: 10px;
+            border-radius: 10px;
+            display: block;
+            text-decoration: none;
+            transition:  background 0.5s ease;
+            background:  #FDE18C;
+            color: black;
+            border: 1px solid #FFC52C;
+            margin-bottom: 10px;
+        }
+
+        .sj-container:hover {
+            background: #FDDB73;
+        }
+
+        .sj-subtitle {
+            font-size: 0.9em;
+        }
+        .sj-progress {
+            box-sizing:border-box;
+            padding-left:10px;
+            height:100%;
+            background:black;
+            border-top-left-radius:15px;
+            border-bottom-left-radius:15px;
+            display:flex;
+            align-items: center;
+            color: white;
+            max-width:100%;
+        }
+
+        .sj-progress-text {
+            font-size: 0.8em;
+            position: absolute;
+            top: 3px;
+            right: 0;
+            left: 5px;
+            bottom: 0;
+            color: white;
+            text-align: left;
+        }
+
 
     </style>
 
-    <title>Donation Daddy - @yield('title')</title>
+    <title>{{ $title }} - {{ $subtitle }}</title>
 
-    <meta property='og:title' content='Donation Daddy' />
-    <meta property='description' content='Donation Daddy - Be a Donation Daddy Today!' />
-    <meta property='og:description' content='Donation Daddy - Be a Donation Daddy Today!' />
+    <meta property='og:title' content='{{ $title }}' />
+    <meta property='description' content='{{ $title }} - {{ $subtitle }}' />
+    <meta property='og:description' content='{{ $title }} - {{ $subtitle }}' />
     <meta property='og:type' content='article' />
     <meta property='og:url' content='https://donationdaddy.rknight.me' />
-    <meta property='og:image' content='/icons/donationdaddy/preview.png'>
+    <meta property='og:image' content='/icons/{{ $assetpath }}/preview.png'>
 
-    <link rel='apple-touch-icon' sizes='180x180' href='/icons/donationdaddy/apple-touch-icon.png'>
-    <link rel='icon' type='image/png' sizes='32x32' href='/icons/donationdaddy/favicon-32x32.png'>
-    <link rel='icon' type='image/png' sizes='16x16' href='/icons/donationdaddy/favicon-16x16.png'>
-    <link rel='manifest' href='/icons/donationdaddy/site.webmanifest'>
-    <link rel='mask-icon' href='/icons/donationdaddy/safari-pinned-tab.svg' color='#5bbad5'>
+    <link rel='apple-touch-icon' sizes='180x180' href='/icons/{{ $assetpath }}/apple-touch-icon.png'>
+    <link rel='icon' type='image/png' sizes='32x32' href='/icons/{{ $assetpath }}/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='16x16' href='/icons/{{ $assetpath }}/favicon-16x16.png'>
+    <link rel='manifest' href='/icons/{{ $assetpath }}/site.webmanifest'>
+    <link rel='mask-icon' href='/icons/{{ $assetpath }}/safari-pinned-tab.svg' color='#5bbad5'>
     <meta name='msapplication-TileColor' content='#da532c'>
     <meta name='theme-color' content='#ffffff'>
-    <link rel='icon' type='image/x-icon' href='/icons/donationdaddy/favicon.ico'>
+    <link rel='icon' type='image/x-icon' href='/icons/{{ $assetpath }}/favicon.ico'>
 
     <link rel='preconnect' href='https://fonts.bunny.net'>
     <link href='https://fonts.bunny.net/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&display=swap' rel='stylesheet'>
@@ -201,8 +237,8 @@
 
     <div class="wrapper">
         <header>
-            <h1>Donation Daddy</h1>
-            <p class='subtitle'><em>Be a Donation Daddy today!</em></p>
+            <h1>{{ $title }}</h1>
+            <p class='subtitle'><em>{{ $subtitle }}</em></p>
             <p class='subtitle'><small>Made by <a href='https://stjude.omg.lol'>Robb Knight</small></a></p>
         </header>
 

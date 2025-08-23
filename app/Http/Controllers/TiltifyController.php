@@ -29,11 +29,11 @@ class TiltifyController extends Controller
     {
         $key = 'tiltify_campaigns';
 
-        if (cache()->has($key)) {
-            return cache()->get($key);
-        }
+//        if (cache()->has($key)) {
+//            return cache()->get($key);
+//        }
 
-        $campaigns = $this->client->getCampaigns($this->getToken());
+        $campaigns = $this->client->getCampaigns();
 
         cache()->put($key, $campaigns, now()->addMinutes(10));
 
@@ -48,7 +48,7 @@ class TiltifyController extends Controller
             return cache()->get($key);
         }
 
-        $campaign = $this->client->getRelayCampaign($this->getToken());
+        $campaign = $this->client->getRelayCampaign();
 
         cache()->put($key, $campaign, now()->addMinutes(10));
 
@@ -74,7 +74,7 @@ class TiltifyController extends Controller
         }
 
         try {
-            $campaign = $this->client->getCampaign($slug, $vanity, $this->getToken());
+            $campaign = $this->client->getCampaign($slug, $vanity);
         } catch (Throwable $e) {
             return $this->relay();
         }
@@ -97,20 +97,5 @@ class TiltifyController extends Controller
             'raised' => $currency . $campaign->raised,
             'percentage' => $campaign->percentage,
         ];
-    }
-
-    private function getToken()
-    {
-        $key = 'tiltify_token';
-
-        if (cache()->has($key)) {
-            return cache()->get($key);
-        }
-
-        $token = $this->client->getToken()['access_token'];
-
-        cache()->put($key, $token, now()->addHour());
-
-        return $token;
     }
 }

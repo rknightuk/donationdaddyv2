@@ -10,16 +10,30 @@ class TiltifyClient {
 
     public function getToken()
     {
-        return Http::asJson()->post('https://v5api.tiltify.com/oauth/token', [
+        $key = 'tiltify_token';
+
+        if (cache()->has($key)) {
+            return cache()->get($key);
+        }
+
+        $res = Http::asJson()->post('https://v5api.tiltify.com/oauth/token', [
             'grant_type' => 'client_credentials',
             'scope' => 'public',
             'client_id' => env('TILTIFY_CLIENT_ID'),
             'client_secret' => env('TILTIFY_CLIENT_SECRET'),
         ])->json();
+
+        $token = $res['access_token'];
+
+        cache()->put($key, $token, now()->addHour());
+
+        return $token;
     }
 
-    public function getCampaign(string $user, string $campaign, string $token)
+    public function getCampaign(string $user, string $campaign)
     {
+        $token = $this->getToken();
+
         $slug = \sprintf('https://v5api.tiltify.com/api/public/campaigns/by/slugs/%s/%s', $user, $campaign);
 
         $res = Http::withToken(
@@ -29,8 +43,10 @@ class TiltifyClient {
         return Campaign::fromApi($res['data']);
     }
 
-    public function getRelayCampaign($token)
+    public function getRelayCampaign()
     {
+        $token = $this->getToken();
+
         $slug = 'https://v5api.tiltify.com/api/public/fundraising_events/' . self::RELAY_TEAM_ID;
 
         $res = Http::withToken(
@@ -40,8 +56,10 @@ class TiltifyClient {
         return Campaign::fromApi($res['data']);
     }
 
-    public function getCampaigns(string $token)
+    public function getCampaigns()
     {
+        $token = $this->getToken();
+
         $slug = 'https://v5api.tiltify.com/api/public/fundraising_events/' . self::RELAY_TEAM_ID . '/supporting_events?limit=100';
 
         $res = Http::withToken(

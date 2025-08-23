@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Donation Daddy')
+@section('title', 'Be a Donation Daddy Today!')
 
 @section('content')
     <script src='/sj.js?u=https://tiltify.com/@rknightuk/stjude2025'></script>
