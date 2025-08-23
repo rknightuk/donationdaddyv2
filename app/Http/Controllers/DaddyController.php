@@ -40,7 +40,7 @@ class DaddyController extends Controller
 
          return view('coin', [
             'title' => 'Coin Me, Daddy',
-            'subtitle' => 'Help someone out who needs just one dollar to get a Relay for St Jude challenge coin',
+            'subtitle' => 'Help someone out who needs just one dollar to get a Relay for St Jude challenge coin or one hundred dollars to get a set of coins',
             'assetpath' => 'coinme',
             'countSingle' => $countSingle,
             'countSet' => $countSet,

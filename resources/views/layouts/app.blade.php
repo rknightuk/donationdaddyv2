@@ -77,6 +77,7 @@
             font-size: 1.5em;
             margin-bottom: 0;
             font-family: 'Press Start 2P', system-ui;
+            text-shadow: rgba(227, 61, 148, 0.7) 2px 2px 0px, rgba(76, 162, 183, 0.7) -2px -2px 0px;
         }
 
         .subtitle {

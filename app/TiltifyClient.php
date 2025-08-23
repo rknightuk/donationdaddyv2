@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 
 class TiltifyClient {
@@ -66,9 +67,21 @@ class TiltifyClient {
             $token,
         )->get($slug)->json();
 
+        $data = Arr::get($res, 'data', []);
+
+        if ($cursor = Arr::get($res, 'metadata.after')) {
+            $slug = 'https://v5api.tiltify.com/api/public/fundraising_events/' . self::RELAY_TEAM_ID . '/supporting_events?limit=100&after=' . $cursor;
+
+            $res2 = Http::withToken(
+                $token,
+            )->get($slug)->json();
+
+            $data = array_merge($data, Arr::get($res2, 'data', []));
+        }
+
         return array_map(
             fn($item) => Campaign::fromApi($item),
-            $res['data'] ?? [],
+            $data,
         );
     }
 
