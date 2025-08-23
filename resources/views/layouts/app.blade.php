@@ -260,7 +260,7 @@
         <footer>
             <p class='subtitle'><small>Made by <a href="https://stjude.omg.lol">Robb Knight</small></a></p>
 
-            <a href='https://donationdaddy.rknight.me'><img src='/icons/donationdaddy/DonationDaddy.png' height='50'></a>
+            <a href="https://donationdaddy.rknight.me"><img src="/icons/donationdaddy/DonationDaddy.png" height="50"></a>
 
         </footer>
     </div>
