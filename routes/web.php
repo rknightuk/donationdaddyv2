@@ -20,7 +20,7 @@ Route::domain('donationtreats.rknight.me', DaddyController::class . '@home');
 
 Route::get('/septembed', DaddyController::class . '@septembed');
 Route::domain('septembed.rknight.me', DaddyController::class . '@septembed');
-Route::get('sj.php', TiltifyController::class . '@embed');
+Route::get('/sj.php', TiltifyController::class . '@embed');
 
 Route::get('/backpack', DaddyController::class . '@bag');
 Route::domain('hathelp.rknight.me', DaddyController::class . '@bag');
