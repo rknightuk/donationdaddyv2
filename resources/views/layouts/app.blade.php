@@ -241,7 +241,7 @@
     <nav class='main'>
         <a href='https://coinme.dad/dy'>Coin Me, Daddy</a>
         <a href='https://deskmat.help'>Desk Mat Help</a>
-        <a href='https://hathelp.rknight.me'>Hat Help</a>
+        <a href='https://backpackhelp.rknight.me'>Backpack Help</a>
         {{-- <a href='https://donationtreats.rknight.me'>Donation Treats</a> --}}
         <a href='https://septembed.rknight.me'>Septembed</a>
         {{-- <a href='https://stjude.omg.lol'>robb x omg.lol</a> --}}

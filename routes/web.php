@@ -22,9 +22,9 @@ Route::get('/septembed', DaddyController::class . '@septembed');
 Route::domain('septembed.rknight.me', DaddyController::class . '@septembed');
 Route::get('sj.php', TiltifyController::class . '@embed');
 
-Route::get('/bag', DaddyController::class . '@bag');
+Route::get('/backpack', DaddyController::class . '@bag');
 Route::domain('hathelp.rknight.me', DaddyController::class . '@bag');
-Route::domain('baghelp.rknight.me', DaddyController::class . '@bag');
+Route::domain('backpackhelp.rknight.me', DaddyController::class . '@bag');
 
 Route::get('api/campaigns', TiltifyController::class . '@campaigns');
 Route::get('api/campaign', TiltifyController::class . '@campaign');
