@@ -7,7 +7,7 @@
     <div style='display: grid;grid-template-columns: repeat(3, 1fr);grid-gap:10px;margin-top:10px;'>
         <a href='https://coinme.dad/dy'><img src='icons/coinme/preview.png'></a>
         <a href='https://deskmat.help'><img src='icons/deskmat/preview.png'></a>
-        <a href='https://hathelp.rknight.me'><img src='icons/500/preview.png'></a>
+        <a href='https://backpackhelp.rknight.me'><img src='icons/500/preview.png'></a>
         {{-- <a href='https://donationtreats.rknight.me'><img src='icons/treats/preview.png'></a> --}}
         <div></div>
         <a href='https://septembed.rknight.me'><img src='icons/septembed/preview.png'></a>
