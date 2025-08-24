@@ -29,9 +29,9 @@ class TiltifyController extends Controller
     {
         $key = 'tiltify_campaigns';
 
-//        if (cache()->has($key)) {
-//            return cache()->get($key);
-//        }
+        if (cache()->has($key)) {
+            return cache()->get($key);
+        }
 
         $campaigns = $this->client->getCampaigns();
 
@@ -86,6 +86,8 @@ class TiltifyController extends Controller
 
     public function embed()
     {
+        header('Access-Control-Allow-Origin: *');
+        
         $campaign = $this->campaign();
 
         $currency = '$';
