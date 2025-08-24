@@ -4,7 +4,10 @@ use App\Http\Controllers\DaddyController;
 use App\Http\Controllers\TiltifyController;
 use Illuminate\Support\Facades\Route;
 
-Route::domain('coinme.dad', DaddyController::class . '@coin');
+Route::domain('coinme.dad')->group(function () {
+    Route::get('/', DaddyController::class . '@coin');
+});
+
 Route::domain('coin.rknight.me', DaddyController::class . '@coin');
 
 Route::get('/', DaddyController::class . '@home');
