@@ -4,17 +4,12 @@ use App\Http\Controllers\DaddyController;
 use App\Http\Controllers\TiltifyController;
 use Illuminate\Support\Facades\Route;
 
+Route::domain('coinme.dad', DaddyController::class . '@coin');
+Route::domain('coin.rknight.me', DaddyController::class . '@coin');
+
 Route::get('/', DaddyController::class . '@home');
 
-Route::domain('donationdaddy.rknight.me', DaddyController::class . '@home');
-
 Route::get('/coin', DaddyController::class . '@coin');
-Route::domain('coinme.dad')->group(function () {
-    Route::get('/', DaddyController::class . '@coin');
-});
-Route::domain('coin.rknight.me')->group(function () {
-    Route::get('/', DaddyController::class . '@coin');
-});
 
 Route::get('/deskmat', DaddyController::class . '@deskmat');
 Route::domain('deskmat.help', DaddyController::class . '@deskmat');
