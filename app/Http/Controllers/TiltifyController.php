@@ -87,7 +87,7 @@ class TiltifyController extends Controller
     public function embed()
     {
         header('Access-Control-Allow-Origin: *');
-        
+
         $campaign = $this->campaign();
 
         $currency = '$';

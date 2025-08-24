@@ -75,7 +75,7 @@ if (septembedParams.u)
     slug = parts[1]
 }
 
-const septembedPath = `/sj.php?vanity=${vanity}&slug=${slug}`
+const septembedPath = `/sj?vanity=${vanity}&slug=${slug}`
 fetch(septembedPath)
 .then((response) => response.json())
 .then((data) => {
