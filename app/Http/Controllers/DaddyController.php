@@ -122,7 +122,7 @@ class DaddyController extends Controller
     {
         return collect($this->client->getCampaigns())
             ->sort(function ($a, $b) {
-                return (int) $a->goal < (int) $b->goal;
+                return (int) $a->raised < (int) $b->raised;
             })
             ->filter(function ($campaign) {
                 return $campaign->id !== self::RELAY_CAMPAIGN_ID;
