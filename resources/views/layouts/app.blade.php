@@ -191,7 +191,6 @@
         .sj-progress-text {
             font-size: 0.8em;
             position: absolute;
-            top: 3px;
             right: 0;
             left: 5px;
             bottom: 0;

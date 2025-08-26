@@ -33,7 +33,6 @@ const septembedStylesheet = `
 
 .sj-progress-text {
     position: absolute!important;
-    top: 3px!important;
     right: 0!important;
     left: 5px!important;
     bottom: 0!important;
