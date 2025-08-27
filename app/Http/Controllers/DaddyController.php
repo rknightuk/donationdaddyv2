@@ -147,7 +147,7 @@ class DaddyController extends Controller
                 return (int) $a->raised < (int) $b->raised;
             })
             ->filter(function ($campaign) {
-                return $campaign->id !== self::RELAY_CAMPAIGN_ID;
+                return $campaign->legacy_id !== self::RELAY_CAMPAIGN_ID;
             })
             ->values();
 
