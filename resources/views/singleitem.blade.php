@@ -14,8 +14,8 @@
                 {{ $n->name }} @if ($n->username) / {{ '@' . $n->username }}@endif<br style="margin-bottom:5px;"></p>
             <p class="sj-subtitle" style="margin-top: 0px; margin-bottom: 10px;">${{ number_format($limit - $n->raised, 2) }} needed</p>
             <div style="position: relative; height: 25px; background: rgba(189, 195, 199, 0.6); border-radius: 15px;">
-                <div class="sj-progress" style="width: {{ $n->percentage }}%;"></div>
-                <div class="sj-progress-text">{{ '$' . $n->raised }} • {{ $n->percentage }}%</div>
+                <div class="sj-progress" style="width: {{ $n->getCustomPercentage($limit) }}%;"></div>
+                <div class="sj-progress-text">{{ '$' . $n->raised }} • {{ $n->getCustomPercentage($limit) }}%</div>
             </div>
         </a>
     @endforeach

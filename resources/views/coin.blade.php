@@ -65,8 +65,8 @@
                         {{ $set->name }} @if ($set->username) / {{ '@' . $set->username }}@endif<br style="margin-bottom:5px;"></p>
                     <p class="sj-subtitle" style="margin-top: 0px; margin-bottom: 10px;">${{ number_format(100 - $set->raised, 2) }} needed</p>
                     <div style="position: relative; height: 25px; background: rgba(189, 195, 199, 0.6); border-radius: 15px;">
-                        <div class="sj-progress" style="width: {{ $set->percentage }}%;"></div>
-                        <div class="sj-progress-text">{{ '$' . $set->raised }} • {{ $set->percentage }}%</div>
+                        <div class="sj-progress" style="width: {{ $set->getCustomPercentage(100) }}%;"></div>
+                        <div class="sj-progress-text">{{ '$' . $set->raised }} • {{ $set->getCustomPercentage(100) }}%</div>
                     </div>
                 </a>
             @endforeach

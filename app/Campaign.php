@@ -36,4 +36,9 @@ class Campaign extends Model {
         return ($this->goal > 0 && $this->raised > 0) ? number_format((($this->raised / $this->goal) * 100), 2) : 0;
     }
 
+    public function getCustomPercentage(int $goal)
+    {
+        return ($goal > 0 && $this->raised > 0) ? number_format((($this->raised / $goal) * 100), 2) : 0;
+    }
+
 }
