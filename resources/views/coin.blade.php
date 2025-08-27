@@ -53,7 +53,7 @@
 
             @foreach ($singles as $single)
                 <a class="sj-container" href="{{ $single->url }}" target="_blank">
-                    <p class="sj-title" style="margin-top: 0px; margin-bottom: 5px; font-weight: bold;overflow: hidden;">{{ $single->name }}<br style="margin-bottom:5px;"></p>
+                    <p class="sj-title" style="margin-top: 0px; margin-bottom: 5px; font-weight: bold;overflow: hidden;">{{ $single->name }} @if ($single->username) / {{ '@' . $single->username }}@endif<br style="margin-bottom:5px;"></p>
                 </a>
             @endforeach
         </div>
@@ -62,7 +62,7 @@
             @foreach ($sets as $set)
                 <a class="sj-container" href="{{ $set->url }}" target="_blank">
                     <p class="sj-title" style="margin-top: 0px; margin-bottom: 5px; font-weight: bold;overflow: hidden;">
-                        {{ $set->name }}<br style="margin-bottom:5px;"></p>
+                        {{ $set->name }} @if ($set->username) / {{ '@' . $set->username }}@endif<br style="margin-bottom:5px;"></p>
                     <p class="sj-subtitle" style="margin-top: 0px; margin-bottom: 10px;">${{ number_format(100 - $set->raised, 2) }} needed</p>
                     <div style="position: relative; height: 25px; background: rgba(189, 195, 199, 0.6); border-radius: 15px;">
                         <div class="sj-progress" style="width: {{ $set->percentage }}%;"></div>

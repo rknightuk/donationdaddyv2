@@ -41,6 +41,8 @@ Route::get('/deskmat', DaddyController::class . '@deskmat');
 
 Route::get('/treats', DaddyController::class . '@home');
 
+Route::get('/leaderboard', DaddyController::class . '@leaderboard');
+
 Route::get('/septembed', DaddyController::class . '@septembed');
 Route::get('/sj', TiltifyController::class . '@embed');
 

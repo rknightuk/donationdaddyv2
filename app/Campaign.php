@@ -23,6 +23,7 @@ class Campaign extends Model {
             'id' => $data['id'],
             'name' => $data['name'],
             'url' => $url,
+            'username' => Arr::get($data, 'user.slug', null),
             'avatar' => Arr::get($data, 'avatar.src', null),
             'goal' => Arr::get($data, 'goal.value', 0),
             'raised' => Arr::get($data, 'total_amount_raised.value', 0),

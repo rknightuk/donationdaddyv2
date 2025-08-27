@@ -113,9 +113,14 @@ class DaddyController extends Controller
         ]);
     }
 
-     public function treats()
+     public function leaderboard()
      {
-         return view('treats');
+         return view('leaderboard', [
+             'title' => 'Leaderboard',
+             'subtitle' => 'See who\'s winning at charity',
+             'assetpath' => 'donationdaddy',
+             'campaigns' => $this->getSortedCampaigns(),
+         ]);
      }
 
     private function getSortedCampaigns()
@@ -126,6 +131,7 @@ class DaddyController extends Controller
             })
             ->filter(function ($campaign) {
                 return $campaign->id !== self::RELAY_CAMPAIGN_ID;
-            });
+            })
+            ->values();
     }
 }
