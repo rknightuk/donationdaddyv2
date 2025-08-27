@@ -233,6 +233,10 @@
     <link rel='preconnect' href='https://fonts.bunny.net'>
     <link href='https://fonts.bunny.net/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&display=swap' rel='stylesheet'>
 
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="OQIRZXWS" defer></script>
+    <!-- / Fathom -->
+
 </head>
 
 <body>
