@@ -31,7 +31,7 @@
     @foreach($rewards as $reward)
         <div class='reward-box'>
             <div class='reward-image flex'><img src="{{ $reward->image }}"></div>
-            <p><a href="{{ $reward->url }}" target="_blank" class='reward-header'>{{ $reward->name }} - {{ $reward->amount }} ({{ '@' . $reward->campaign_username }})</a></p>
+            <p><a href="{{ $reward->campaign_url }}" target="_blank" class='reward-header'>{{ $reward->name }} - {{ $reward->amount }} ({{ '@' . $reward->campaign_username }})</a></p>
             <p>{{ $reward->description }}</p>
         </div>
     @endforeach

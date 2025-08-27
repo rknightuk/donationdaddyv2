@@ -140,7 +140,7 @@ class DaddyController extends Controller
     private function getSortedCampaigns()
     {
         $key = 'sorted_campaigns_internal';
-        
+
         if (cache()->has($key)) {
             return cache()->get($key);
         }
