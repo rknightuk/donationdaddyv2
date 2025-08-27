@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 
 class DaddyController extends Controller
 {
-    const RELAY_CAMPAIGN_ID = 37917;
+    const RELAY_IDS = [
+        37917,
+        593664,
+    ];
 
     public function __construct(private TiltifyClient $client) {}
      public function home()
@@ -137,7 +140,7 @@ class DaddyController extends Controller
     private function getSortedCampaigns()
     {
         $key = 'sorted_campaigns_internal';
-
+        
         if (cache()->has($key)) {
             return cache()->get($key);
         }
@@ -147,7 +150,7 @@ class DaddyController extends Controller
                 return (int) $a->raised < (int) $b->raised;
             })
             ->filter(function ($campaign) {
-                return $campaign->legacy_id !== self::RELAY_CAMPAIGN_ID;
+                return !\in_array($campaign->legacy_id, self::RELAY_IDS);
             })
             ->values();
 
