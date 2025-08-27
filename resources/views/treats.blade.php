@@ -8,6 +8,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 20px;
+            word-break: break-word;
         }
 
         .reward-box {
