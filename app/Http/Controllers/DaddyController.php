@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DonationTreat;
 use App\TiltifyClient;
 use Illuminate\Http\Request;
 
@@ -123,9 +124,25 @@ class DaddyController extends Controller
          ]);
      }
 
+    public function treats()
+    {
+        return view('treats', [
+            'title' => 'Donation Treats',
+            'subtitle' => 'Donate some money, get a treat',
+            'assetpath' => 'treats',
+            'rewards' => DonationTreat::all()->shuffle(),
+        ]);
+    }
+
     private function getSortedCampaigns()
     {
-        return collect($this->client->getCampaigns())
+        $key = 'sorted_campaigns_internal';
+
+        if (cache()->has($key)) {
+            return cache()->get($key);
+        }
+
+        $sorted = collect($this->client->getCampaigns())
             ->sort(function ($a, $b) {
                 return (int) $a->raised < (int) $b->raised;
             })
@@ -133,5 +150,9 @@ class DaddyController extends Controller
                 return $campaign->id !== self::RELAY_CAMPAIGN_ID;
             })
             ->values();
+
+        cache()->put($key, $sorted, now()->addMinutes(5));
+
+        return $sorted;
     }
 }

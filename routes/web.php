@@ -19,7 +19,7 @@ Route::domain('deskmat.help')->group(function () {
 });
 
 Route::domain('donationtreats.rknight.me')->group(function () {
-    Route::get('/', DaddyController::class . '@home');
+    Route::get('/', DaddyController::class . '@treats');
 });
 
 Route::domain('septembed.rknight.me')->group(function () {
@@ -39,7 +39,7 @@ Route::get('/coin', DaddyController::class . '@coin');
 
 Route::get('/deskmat', DaddyController::class . '@deskmat');
 
-Route::get('/treats', DaddyController::class . '@home');
+Route::get('/treats', DaddyController::class . '@treats');
 
 Route::get('/leaderboard', DaddyController::class . '@leaderboard');
 
@@ -51,5 +51,7 @@ Route::get('/backpack', DaddyController::class . '@bag');
 Route::get('api/campaigns', TiltifyController::class . '@campaigns');
 Route::get('api/campaign', TiltifyController::class . '@campaign');
 Route::get('api/relay', TiltifyController::class . '@relay');
+
+Route::get('api/rewards', TiltifyController::class . '@fetchRewards');
 
 Route::get('api/clear', TiltifyController::class . '@clearCache');

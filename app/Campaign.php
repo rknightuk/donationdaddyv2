@@ -20,7 +20,8 @@ class Campaign extends Model {
         }
 
         return new self([
-            'id' => $data['id'],
+            'campaign_id' => $data['id'],
+            'legacy_id' => $data['legacy_id'] ?? null,
             'name' => $data['name'],
             'url' => $url,
             'username' => Arr::get($data, 'user.slug', null),

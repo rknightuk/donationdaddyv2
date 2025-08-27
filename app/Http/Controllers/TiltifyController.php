@@ -35,7 +35,7 @@ class TiltifyController extends Controller
 
         $campaigns = $this->client->getCampaigns();
 
-        cache()->put($key, $campaigns, now()->addMinutes(10));
+        cache()->put($key, $campaigns, now()->addMinutes(5));
 
         return $campaigns;
     }
@@ -50,7 +50,7 @@ class TiltifyController extends Controller
 
         $campaign = $this->client->getRelayCampaign();
 
-        cache()->put($key, $campaign, now()->addMinutes(10));
+        cache()->put($key, $campaign, now()->addMinutes(5));
 
         return $campaign;
     }
@@ -79,9 +79,20 @@ class TiltifyController extends Controller
             return $this->relay();
         }
 
-        cache()->put($key, $campaign, now()->addMinutes(10));
+        cache()->put($key, $campaign, now()->addMinutes(5));
 
         return $campaign;
+    }
+
+    public function fetchRewards()
+    {
+        if (\request()->input('key') !== env('CACHE_CLEAR_KEY')) {
+            return response()->json(['message' => 'Bye!']);
+        }
+
+        $this->client->getRewards();
+
+        return response()->json(['message' => 'Rewards fetched.']);
     }
 
     public function embed()
