@@ -27,6 +27,8 @@
         }
     </style>
 
+    <p class="center"><strong>There are {{ $treatCount }} rewards available across {{ $campaignCount }} campaigns!</strong></p>
+
     <div class="reward-wrap">
     @foreach($rewards as $reward)
         <div class='reward-box'>

@@ -129,11 +129,15 @@ class DaddyController extends Controller
 
     public function treats()
     {
+        $treats = DonationTreat::all();
+
         return view('treats', [
             'title' => 'Donation Treats',
             'subtitle' => 'Donate some money, get a treat',
             'assetpath' => 'treats',
-            'rewards' => DonationTreat::all()->shuffle(),
+            'rewards' => $treats->shuffle(),
+            'treatCount' => $treats->count(),
+            'campaignCount' => $treats->groupBy('campaign_id')->count(),
         ]);
     }
 
